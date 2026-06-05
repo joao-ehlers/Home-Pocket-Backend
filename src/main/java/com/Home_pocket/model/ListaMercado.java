@@ -1,16 +1,14 @@
 package com.Home_pocket.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
+@Builder
 @Table(name="lista_mercado")
 public class ListaMercado {
 
@@ -27,6 +25,9 @@ public class ListaMercado {
     private String categoria;
 
     private Double precoMedio;//implementar futuramente uma tabela apenas para preco, salvando onde foi comprado e mais infos
+
+    public ListaMercado(String nomeItem, String categoria, Boolean StFinalizado, Double quantidade, Double precoMedio) {
+    }
 
     //usuario responsavel no futuro
 
