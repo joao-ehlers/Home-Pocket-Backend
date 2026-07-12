@@ -1,6 +1,8 @@
 package com.Home_pocket.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Entity
@@ -16,12 +18,16 @@ public class ListaMercado {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Nome do item necessario")
     private String nomeItem;
 
-    private Boolean StFinalizado;
+    @NotNull(message = "Identificacao da situacao do item necessaria")
+    private Boolean stFinalizado;
 
+    @NotNull(message = "Quantidade necessaria")
     private Double quantidade;
 
+    @NotBlank(message = "Categoria necessaria")
     private String categoria;
 
     private Double precoMedio;//implementar futuramente uma tabela apenas para preco, salvando onde foi comprado e mais infos

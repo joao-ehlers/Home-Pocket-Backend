@@ -5,7 +5,7 @@ import lombok.Builder;
 @Builder
 public record ListaMercadoDTO(
          String nomeItem,
-         Boolean StFinalizado,
+         Boolean stFinalizado,
          Double quantidade,
          String categoria,
          Double precoMedio) {
