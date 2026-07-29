@@ -25,14 +25,15 @@ public class ListaMercado {
     private Boolean stFinalizado;
 
     @NotNull(message = "Quantidade necessaria")
-    private Double quantidade;
+    private Integer quantidade;
 
     @NotBlank(message = "Categoria necessaria")
-    private String categoria;
+    @Enumerated(EnumType.STRING)
+    private Categoria categoria;
 
     private Double precoMedio;//implementar futuramente uma tabela apenas para preco, salvando onde foi comprado e mais infos
 
-    public ListaMercado(String nomeItem, String categoria, Boolean StFinalizado, Double quantidade, Double precoMedio) {
+    public ListaMercado(String nomeItem, String categoria, Boolean StFinalizado, Integer quantidade, Double precoMedio) {
     }
 
     //usuario responsavel no futuro

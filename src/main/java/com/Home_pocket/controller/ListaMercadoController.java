@@ -34,7 +34,6 @@ public class ListaMercadoController {
         return ResponseEntity.status(HttpStatus.CREATED).body(listaMercadoService.adicionarProduto(itemLista));
     }
 
-
     @PutMapping("/{id}")
     public ResponseEntity<ListaMercadoResponseDTO> atualizaItemLista(@PathVariable Long id, @Valid @RequestBody ListaMercadoDTO itemAlterarLista){
         return ResponseEntity.ok(listaMercadoService.editarProduto(itemAlterarLista, id));

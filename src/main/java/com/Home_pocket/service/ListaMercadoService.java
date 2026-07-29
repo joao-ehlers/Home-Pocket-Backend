@@ -2,17 +2,13 @@ package com.Home_pocket.service;
 
 import com.Home_pocket.dto.ListaMercadoDTO;
 import com.Home_pocket.dto.ListaMercadoResponseDTO;
+import com.Home_pocket.exception.ItemNaoEncontradoException;
 import com.Home_pocket.model.ListaMercado;
 import com.Home_pocket.repository.ListaMercadoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.stream.Collectors;
-
-import static java.util.stream.Collectors.toList;
 
 @RequiredArgsConstructor
 @Service
@@ -30,7 +26,7 @@ public class ListaMercadoService {
     };
 
     public ListaMercadoResponseDTO editarProduto(ListaMercadoDTO itemDTO, Long id){
-        ListaMercado itemPraAtt = listaRepository.findById(id).orElseThrow(() -> new RuntimeException("Item da lista nao encontrado"));
+        ListaMercado itemPraAtt = listarItem(id);
 
         itemPraAtt.setNomeItem(itemDTO.nomeItem());
         itemPraAtt.setCategoria(itemDTO.categoria());
@@ -42,18 +38,20 @@ public class ListaMercadoService {
 
         return ListaMercadoResponseDTO.builder().id(itemPraAtt.getId()).categoria(itemPraAtt.getCategoria())
                 .nomeItem(itemPraAtt.getNomeItem()).quantidade(itemPraAtt.getQuantidade()).precoMedio(itemPraAtt.getPrecoMedio()).StFinalizado(itemPraAtt.getStFinalizado()).build();
+    }
 
+    public ListaMercado listarItem(Long id){
+
+        return listaRepository.findById(id).orElseThrow(() -> new ItemNaoEncontradoException(id));
     }
 
     public Page<ListaMercadoResponseDTO> listarLista(Pageable pageable){
-        return listaRepository.findAll(pageable).map(entidade -> {
-            return ListaMercadoResponseDTO.builder().id(entidade.getId()).categoria(entidade.getCategoria())
-                    .nomeItem(entidade.getNomeItem()).precoMedio(entidade.getPrecoMedio()).StFinalizado(entidade.getStFinalizado()).build();
-        });
+        return listaRepository.findAll(pageable).map(entidade -> ListaMercadoResponseDTO.builder().id(entidade.getId()).categoria(entidade.getCategoria())
+                .nomeItem(entidade.getNomeItem()).precoMedio(entidade.getPrecoMedio()).StFinalizado(entidade.getStFinalizado()).quantidade(entidade.getQuantidade()).build());
     }
 
     public void deletarItemLista(Long id){
-        ListaMercado itemParaDeletar = listaRepository.findById(id).orElseThrow(() -> new RuntimeException("Item nao encontrado"));
+        ListaMercado itemParaDeletar = listarItem(id);;
         listaRepository.delete(itemParaDeletar);
     }
 
