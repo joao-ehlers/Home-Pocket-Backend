@@ -1,73 +1,73 @@
 # 🏠 Home Pocket — Backend
 
-> API REST do Home Pocket, aplicativo de gestão doméstica compartilhada.
+> REST API for Home Pocket, a shared household management app.
 
 ---
 
-## 📋 Sobre
+## 📋 About
 
-Este repositório contém o backend do **Home Pocket**, responsável por toda a lógica de negócio, autenticação, persistência de dados e comunicação em tempo real entre os membros de uma casa.
+This repository contains the backend for **Home Pocket**, responsible for all business logic, authentication, data persistence, and real-time communication between household members.
 
 ---
 
-## 🛠️ Stack
+## 🛠️ Tech Stack
 
-| Tecnologia            | Uso |
+| Technology            | Usage |
 |-----------------------|---|
-| Java 21               | Linguagem principal |
-| Spring Boot 3         | Framework principal |
-| Spring Security + JWT | Autenticação e autorização |
-| Spring Data JPA       | Persistência de dados |
-| PostgreSQL            | Banco de dados relacional |
-| WebSocket (STOMP)     | Comunicação em tempo real |
-| Docker                | Containerização |
+| Java 21               | Main language |
+| Spring Boot 3         | Main framework |
+| Spring Security + JWT | Authentication and authorization |
+| Spring Data JPA       | Data persistence |
+| PostgreSQL            | Relational database |
+| WebSocket (STOMP)     | Real-time communication |
+| Docker                | Containerization |
 
 ---
 
-## 🏗️ Estrutura do Projeto
+## 🏗️ Project Structure
 
-```
+```text
 src/main/java/com/homepocket/
-├── auth/           # Autenticação, JWT e registro de usuários
-├── house/          # Módulo de casas e membros
-├── market/         # Módulo de lista de mercado
-├── event/          # Módulo de eventos
-├── finance/        # Módulo de finanças
-└── shared/         # Exceções, DTOs e utilitários comuns
+├── auth/           # Authentication, JWT, and user registration
+├── house/          # House and members module
+├── market/         # Grocery list module
+├── event/          # Events module
+├── finance/        # Finance module
+└── shared/         # Exceptions, DTOs, and common utilities
 ```
 
 ---
 
-## 🚀 Como Rodar
+## 🚀 How to Run
 
-### Pré-requisitos
+### Prerequisites
 - Java 17+
-- Docker e Docker Compose
+- Docker and Docker Compose
 
-### Passos
+### Steps
 
 ```bash
-# Clone o repositório
-git clone https://github.com/seu-usuario/home-pocket-backend.git
+# Clone the repository
+git clone https://github.com/your-username/home-pocket-backend.git
 cd home-pocket-backend
 
-# Suba o banco de dados
+# Start the database
 docker-compose up -d
 
-# Rode a aplicação
+# Run the application
 ./mvnw spring-boot:run
 ```
 
-A API estará disponível em `http://localhost:8080`.
+The API will be available at `http://localhost:8080`.
 
 ---
 
-## 🔐 Autenticação
+## 🔐 Authentication
 
-A API utiliza **JWT Bearer Token**. Após o login, inclua o token no header de todas as requisições protegidas:
+The API uses **JWT Bearer Token**. After logging in, include the token in the header of all protected requests:
 
-```
-Authorization: Bearer <seu-token>
+```text
+Authorization: Bearer <your-token>
 ```
 
 ---
@@ -75,64 +75,64 @@ Authorization: Bearer <seu-token>
 ## 📡 Endpoints
 
 ### Auth
-```
-POST   /api/auth/register         → Cadastro de usuário
-POST   /api/auth/login            → Login e geração de token
-```
-
-### Casas
-```
-POST   /api/houses                → Criar casa
-POST   /api/houses/{id}/invite    → Convidar morador
-GET    /api/houses/{id}/members   → Listar membros
+```text
+POST   /api/auth/register         → User registration
+POST   /api/auth/login            → Login and token generation
 ```
 
-### Lista de Mercado
-```
-GET    /api/houses/{id}/market         → Listar itens
-POST   /api/houses/{id}/market         → Adicionar item
-PATCH  /api/market/{itemId}            → Atualizar status ou responsável
-DELETE /api/market/{itemId}            → Remover item
-```
-
-### Eventos
-```
-GET    /api/houses/{id}/events    → Listar eventos
-POST   /api/houses/{id}/events    → Criar evento
-PATCH  /api/events/{eventId}      → Atualizar evento
-DELETE /api/events/{eventId}      → Remover evento
+### Houses
+```text
+POST   /api/houses                → Create house
+POST   /api/houses/{id}/invite    → Invite member
+GET    /api/houses/{id}/members   → List members
 ```
 
-### Finanças
+### Grocery List
+```text
+GET    /api/houses/{id}/market         → List items
+POST   /api/houses/{id}/market         → Add item
+PATCH  /api/market/{itemId}            → Update status or assignee
+DELETE /api/market/{itemId}            → Remove item
 ```
-GET    /api/houses/{id}/finances  → Listar gastos
-POST   /api/houses/{id}/finances  → Registrar gasto
-DELETE /api/finances/{id}         → Remover registro
+
+### Events
+```text
+GET    /api/houses/{id}/events    → List events
+POST   /api/houses/{id}/events    → Create event
+PATCH  /api/events/{eventId}      → Update event
+DELETE /api/events/{eventId}      → Remove event
+```
+
+### Finance
+```text
+GET    /api/houses/{id}/finances  → List expenses
+POST   /api/houses/{id}/finances  → Register expense
+DELETE /api/finances/{id}         → Remove record
 ```
 
 ---
 
 ## 📌 Roadmap
 
-- [ ] Autenticação com JWT
-- [ ] Módulo de casas e convites
-- [ ] Lista de mercado com tempo real (WebSocket)
-- [ ] Módulo de eventos
-- [ ] Módulo de finanças (fase 1)
-- [ ] Notificações push
-- [ ] Divisão de despesas entre moradores
+- [ ] JWT Authentication
+- [ ] Houses and invitations module
+- [ ] Real-time grocery list (WebSocket)
+- [ ] Events module
+- [ ] Finance module (phase 1)
+- [ ] Push notifications
+- [ ] Expense splitting between household members
 
 ---
 
-## 👤 Autor
+## 👤 Author
 
-Desenvolvido por **[Seu Nome]** como projeto de portfólio.
+Developed by **Joao Ehlers** as a portfolio project.
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?style=flat&logo=linkedin)](https://linkedin.com/in/seu-perfil)
-[![GitHub](https://img.shields.io/badge/GitHub-black?style=flat&logo=github)](https://github.com/seu-usuario)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/joão-ehlers-37037511jx)
+[![GitHub](https://img.shields.io/badge/GitHub-black?style=flat&logo=github)](https://github.com/joao-ehlers)
 
 ---
 
-## 📄 Licença
+## 📄 License
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
