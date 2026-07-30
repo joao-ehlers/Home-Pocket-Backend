@@ -25,7 +25,7 @@ public class User {
     private String username;
 
     @NotBlank(message = "The name must be informed")
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false, length = 110)
     private String name;
 
     @NotBlank(message = "The password must be informed")
