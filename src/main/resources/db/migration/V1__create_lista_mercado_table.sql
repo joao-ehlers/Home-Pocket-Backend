@@ -1,4 +1,4 @@
-CREATE TABLE lista_mercado(
+CREATE TABLE market_list(
     id BIGSERIAL PRIMARY KEY,
     item_name VARCHAR(255),
     is_finished BOOLEAN DEFAULT FALSE,
