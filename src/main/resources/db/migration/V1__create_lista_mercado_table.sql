@@ -1,8 +1,8 @@
 CREATE TABLE lista_mercado(
     id BIGSERIAL PRIMARY KEY,
-    nome_item VARCHAR(255),
-    st_finalizado BOOLEAN DEFAULT FALSE,
-    quantidade DOUBLE PRECISION,
-    categoria VARCHAR(255),
-    preco_medio DOUBLE PRECISION
+    item_name VARCHAR(255),
+    is_finished BOOLEAN DEFAULT FALSE,
+    quantity DOUBLE PRECISION,
+    category VARCHAR(255),
+    medium_price DOUBLE PRECISION
 );
