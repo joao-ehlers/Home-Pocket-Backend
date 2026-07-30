@@ -1,9 +1,9 @@
-package com.Home_pocket.controller;
+package com.homepocket.controller;
 
 
-import com.Home_pocket.dto.MarketListDTO;
-import com.Home_pocket.dto.MarketListResponseDTO;
-import com.Home_pocket.service.MarketListService;
+import com.homepocket.dto.MarketListDTO;
+import com.homepocket.dto.MarketListResponseDTO;
+import com.homepocket.service.MarketListService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

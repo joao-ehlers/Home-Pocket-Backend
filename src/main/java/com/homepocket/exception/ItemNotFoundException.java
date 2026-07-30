@@ -1,4 +1,4 @@
-package com.Home_pocket.exception;
+package com.homepocket.exception;
 
 public class ItemNotFoundException extends RuntimeException {
     public ItemNotFoundException(Long id) {

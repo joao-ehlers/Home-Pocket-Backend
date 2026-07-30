@@ -1,11 +1,11 @@
-package com.Home_pocket.service;
+package com.homepocket.service;
 
-import com.Home_pocket.dto.MarketListDTO;
-import com.Home_pocket.dto.MarketListResponseDTO;
-import com.Home_pocket.exception.ItemNotFoundException;
-import com.Home_pocket.model.Category;
-import com.Home_pocket.model.MarketList;
-import com.Home_pocket.repository.MarketListRepository;
+import com.homepocket.dto.MarketListDTO;
+import com.homepocket.dto.MarketListResponseDTO;
+import com.homepocket.exception.ItemNotFoundException;
+import com.homepocket.model.Category;
+import com.homepocket.model.MarketList;
+import com.homepocket.repository.MarketListRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

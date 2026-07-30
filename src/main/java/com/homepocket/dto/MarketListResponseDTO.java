@@ -1,6 +1,6 @@
-package com.Home_pocket.dto;
+package com.homepocket.dto;
 
-import com.Home_pocket.model.Category;
+import com.homepocket.model.Category;
 import lombok.Builder;
 
 @Builder

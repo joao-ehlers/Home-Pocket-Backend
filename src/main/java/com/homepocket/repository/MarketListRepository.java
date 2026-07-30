@@ -1,6 +1,6 @@
-package com.Home_pocket.repository;
+package com.homepocket.repository;
 
-import com.Home_pocket.model.MarketList;
+import com.homepocket.model.MarketList;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,10 +1,10 @@
-package com.Home_pocket.service;
+package com.homepocket.service;
 
-import com.Home_pocket.dto.MarketListDTO;
-import com.Home_pocket.dto.MarketListResponseDTO;
-import com.Home_pocket.exception.ItemNotFoundException;
-import com.Home_pocket.model.MarketList;
-import com.Home_pocket.repository.MarketListRepository;
+import com.homepocket.dto.MarketListDTO;
+import com.homepocket.dto.MarketListResponseDTO;
+import com.homepocket.exception.ItemNotFoundException;
+import com.homepocket.model.MarketList;
+import com.homepocket.repository.MarketListRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -23,7 +23,7 @@ public class MarketListService {
 
         return MarketListResponseDTO.builder().id(savedItem.getId()).category(savedItem.getCategory())
                 .itemName(savedItem.getItemName()).quantity(savedItem.getQuantity()).mediumPrice(savedItem.getMediumPrice()).isFinished(savedItem.getIsFinished()).build();
-    };
+    }
 
     public MarketListResponseDTO editItem(MarketListDTO itemDTO, Long id){
         MarketList itemToUpdate = findItem(id);

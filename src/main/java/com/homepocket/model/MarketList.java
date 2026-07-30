@@ -1,4 +1,4 @@
-package com.Home_pocket.model;
+package com.homepocket.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -19,16 +19,20 @@ public class MarketList {
     private Long id;
 
     @NotBlank(message = "Please, register the name of the item")
+    @Column(nullable = false, length = 25)
     private String itemName;
 
     @NotNull(message = "The item situation is needed")
+    @Column(nullable = false)
     private Boolean isFinished;
 
     @NotNull(message = "Please, register the quantity of this item")
+    @Column(nullable = false)
     private Integer quantity;
 
     @NotNull(message = "Please, register a category")
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private Category category;
 
     private Double mediumPrice;//implementar futuramente uma tabela apenas para preco, salvando onde foi comprado e mais infos

@@ -1,4 +1,4 @@
-package com.Home_pocket.model;
+package com.homepocket.model;
 
 public enum Category {
     GROCERY,

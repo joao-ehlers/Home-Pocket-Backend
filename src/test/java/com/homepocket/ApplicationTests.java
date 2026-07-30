@@ -1,4 +1,4 @@
-package com.Home_pocket;
+package com.homepocket;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

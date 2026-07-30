@@ -1,4 +1,4 @@
-package com.Home_pocket;
+package com.homepocket;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
